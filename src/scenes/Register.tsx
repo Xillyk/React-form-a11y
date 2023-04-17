@@ -70,7 +70,7 @@ const Register = () => {
         REGISTER_URL,
         JSON.stringify({
           userName,
-          passeord: pwd,
+          password: pwd,
         }),
         {
           headers: { "Content-Type": "application/json" },
@@ -88,7 +88,7 @@ const Register = () => {
       } else if (error.response?.status === 409) {
         setErrorMsg("Username taken")
       } else {
-        setErrorMsg("Registeration Failed")
+        setErrorMsg("Registration Failed")
       }
       errRef.current?.focus()
     }
@@ -145,7 +145,7 @@ const Register = () => {
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              4 to 24 charaters.
+              4 to 24 characters.
               <br />
               Must begin with a letter.
               <br />
@@ -177,7 +177,7 @@ const Register = () => {
               className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              8 to 24 charaters.
+              8 to 24 characters.
               <br />
               Must include uppercase and lowercase letters, number and a special
               character.
