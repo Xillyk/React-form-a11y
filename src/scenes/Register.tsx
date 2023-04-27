@@ -69,8 +69,8 @@ const Register = () => {
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
-          userName,
-          password: pwd,
+          user: userName,
+          pwd,
         }),
         {
           headers: { "Content-Type": "application/json" },
@@ -78,19 +78,18 @@ const Register = () => {
         }
       );
 
-      console.log(response.data)
+      console.log(response.data);
       setSuccess(true);
       // clear the input field
-
     } catch (error: any) {
       if (!error) {
-        setErrorMsg("No server response")
+        setErrorMsg("No server response");
       } else if (error.response?.status === 409) {
-        setErrorMsg("Username taken")
+        setErrorMsg("Username taken");
       } else {
-        setErrorMsg("Registration Failed")
+        setErrorMsg("Registration Failed");
       }
-      errRef.current?.focus()
+      errRef.current?.focus();
     }
   };
 
